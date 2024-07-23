@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@react-three/drei": "^9.109.1",
+    "@react-three/fiber": "^8.16.8",
+    "framer-motion": "^11.3.11",
+    "react-intersection-observer": "^9.13.0",
+    "three": "^0.166.1"
+  }
+}
