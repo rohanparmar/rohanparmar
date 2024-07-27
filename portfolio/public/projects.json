@@ -1,0 +1,143 @@
+[
+    {
+      "src": "/img/gem-in-i.jpg",
+      "title": "The Gem in I",
+      "description": "Some description",
+      "link": "#",
+      "skills": ["Python", "Angular", "Firebase", "Gemini", "ElevenLabs"]
+    },
+    {
+      "src": "/img/github-duplicate-issues.jpg",
+      "title": "Document Level Embeddings for Github Duplicate Issues Detection",
+      "description": "Some description",
+      "link": "#",
+      "skills": ["Python", "PyTorch", "Pandas", "Numpy"]
+    },
+    {
+      "src": "/img/enounceai.jpg",
+      "title": "EnounceAI",
+      "description": "Some description",
+      "link": "#",
+      "skills": ["Express", "NodeJS", "Heroku"]
+    },
+    {
+      "src": "/img/discrete-math-symbol.jpg",
+      "title": "Discrete Math Symbol Paster",
+      "description": "Some description",
+      "link": "#",
+      "skills": ["C#"]
+    },
+    {
+      "src": "/img/solar car.jpg",
+      "title": "Solar Electricity Powered Car",
+      "description": "I decided to make a small, solar electricity powered car, that charged its batteries using a small solar panel and can be controlled via a phone, using Arduino Uno.",
+      "link": "https://www.youtube.com/watch?v=vfod9lZ-zGA",
+      "skills": ["Arduino", "C/C++"]
+    },
+    {
+      "src": "/img/India Tourism.png",
+      "title": "India Tourism",
+      "description": "India Tourism is an interactive app for iOS and Android, that transforms the way in which one can experience New Delhi.",
+      "link": "https://www.youtube.com/watch?v=dPeod6PI2fc&t=77s",
+      "skills": ["React", "Javascript", "Apache Cordova", "HTML", "CSS", "Ionic"]
+    },
+    {
+      "src": "/img/Spider Angled (left, close up) rear view.jpg",
+      "title": "Spyyder",
+      "description": "Designed a modern, smart, convertible hub and applied for a patent for the same",
+      "link": "#",
+      "skills": ["Alias"]
+    },
+    {
+      "src": "/img/P2PCI.jpg",
+      "title": "P2P CI",
+      "description": "Point to Point Car Interaction System",
+      "link": "#",
+      "skills": ["Arduino", "C/C++", "Robotics"]
+    },
+    {
+      "src": "/img/combustion.png",
+      "title": "Road Detection Software",
+      "description": "A road detection algorithm which lays itself over videos to detect roads to an accuracy of 82.8%.",
+      "link": "https://youtu.be/uC9SkR03_qo",
+      "skills": ["Python", "OpenCV", "PyCharm", "Anaconda"]
+    },
+    {
+      "src": "/img/SBSP.png",
+      "title": "Sardar Bhagwant Singh Project",
+      "description": "I tried to use Tap Out! to treat Developmental Coordination Disorder",
+      "link": "files/Sardar Bhagwant Singh Final.pdf",
+      "skills": ["Swift", "Psychology", "MVC"]
+    },
+    {
+      "src": "/img/.png",
+      "title": "3D Virtual Reality Technology using HTML",
+      "description": "A 3D Virtual Reality Technology test using HTML and aframe.io workpack",
+      "link": "/3DVRT/index.html",
+      "skills": ["HTML", "Javascript", "CSS"]
+    },
+    {
+      "src": "/img/similarmovies.jpg",
+      "title": "Similar Movies Convoluted Neural Network",
+      "description": "A simple convoluted neural network that samples reviews scraped off of Reddit to suggest similar movies",
+      "link": "https://github.com/rohanparmar/similarmoviesCNN",
+      "skills": ["Python3", "Keras", "Panda", "Artificial Intelligence", "Machine Learning"]
+    },
+    {
+      "src": "/img/Skyrim.jpg",
+      "title": "Skyrim Inspired Interactive CV",
+      "description": "This is a Skyrim inspired interactive CV that I created. It has been left incomplete, as the idea was too hefty to carry out.",
+      "link": "/skyrim/skyrim.html",
+      "skills": ["React", "Javascript", "HTML", "CSS", "LESS", "JSON"]
+    },
+    {
+      "src": "/img/Doom clone.jpg",
+      "title": "DooM Clone",
+      "description": "A simple DooM style FPS game made using GODOT.",
+      "link": "https://youtu.be/HX5gXUNunOU",
+      "skills": ["GODOT", "GDScript", "C#", "C++"]
+    },
+    {
+      "src": "/img/Tap Out!.gif",
+      "title": "Tap Out!",
+      "description": "An easy to play iOS game.",
+      "link": "https://www.youtube.com/watch?v=6zaEp6t3Ako",
+      "skills": ["Swift"]
+    },
+    {
+      "src": "/img/Color Shoot!.gif",
+      "title": "Color Shoot!",
+      "description": "Color Shoot! is a fast paced finger action iOS game, and the only way out is through.",
+      "link": "https://www.youtube.com/watch?v=VJDQu0jdTAA",
+      "skills": ["Swift"]
+    },
+    {
+      "src": "/img/Flappy Bird.gif",
+      "title": "Flappy Bird Clone",
+      "description": "This is a Flappy Bird clone that I tried to make.",
+      "link": "https://www.youtube.com/watch?v=15kIRaR8zV4",
+      "skills": ["Swift"]
+    },
+    {
+      "src": "/img/2048.gif",
+      "title": "2048",
+      "description": "A 2048 clone that I made",
+      "link": "https://www.youtube.com/watch?v=r8A5YNwgEts",
+      "skills": ["Swift"]
+    },
+    {
+      "src": "/img/Piano Tiles.gif",
+      "title": "Piano Tiles",
+      "description": "A Piano Tiles clone that I made",
+      "link": "#",
+      "skills": ["Swift"]
+    },
+    {
+      "src": "/img/.png",
+      "title": "A-Maze-Ing",
+      "description": "A maze game for iOS",
+      "link": "https://youtu.be/stTbFI9RoIQ",
+      "skills": ["Swift"]
+    }
+  ]
+  

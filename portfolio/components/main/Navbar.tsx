@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { RxGithubLogo, RxLinkedinLogo } from 'react-icons/rx'; // Ensure you have the necessary package for these icons
+import { RxGithubLogo, RxLinkedinLogo } from 'react-icons/rx';
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('');
@@ -25,10 +25,17 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleLinkClick = (section) => {
+    const element = document.getElementById(section);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className='w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md z-50 px-10'>
       <div className='w-full h-full flex flex-row items-center justify-between m-auto px-[10px]'>
-        <a href='#about-me' className='h-auto w-auto flex flex-row items-center'>
+        <a href='#about-me' className='h-auto w-auto flex flex-row items-center' onClick={() => handleLinkClick('about-me')}>
           <span className="font-bold ml-[10px] hidden md:block text-gray-300"> Rohan Parmar</span>
         </a>
         <div className='absolute left-1/2 transform -translate-x-1/2'>
@@ -37,6 +44,10 @@ const Navbar = () => {
               <a
                 key={section}
                 href={`#${section}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick(section);
+                }}
                 className={`cursor-pointer relative ${
                   activeSection === section ? 'text-white' : 'text-gray-200'
                 }`}
