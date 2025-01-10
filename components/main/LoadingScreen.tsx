@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const generateRandomHex = (length: number) => {
@@ -101,8 +101,19 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
   const startTimeRef = useRef<number | null>(null);
   const frameRef = useRef<number>();
   const isLoadingRef = useRef(true);
+  const isInitialMount = useRef(true);
 
-  const terminalLines = [
+  // Initialize on mount
+  useEffect(() => {
+    if (isInitialMount.current) {
+      startTimeRef.current = Date.now();
+      setSessionId(generateRandomHex(8).toUpperCase());
+      setTimeout(() => setPanelsVisible(true), 500);
+      isInitialMount.current = false;
+    }
+  }, []);
+
+  const terminalLines = useMemo(() => [
     '> INITIALIZING NEURAL INTERFACE v3.45.89...',
     '> ESTABLISHING SECURE CONNECTION [RSA-4096]...',
     '> SCANNING PATHWAYS FOR OPTIMAL ROUTING...',
@@ -111,7 +122,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
     '> SYNCHRONIZING STATES...',
     '> ACCESS GRANTED - NEURAL LINK ESTABLISHED',
     '> LAUNCHING CYBERNETIC INTERFACE...'
-  ];
+  ], []);
 
   const decryptLine = async (text: string, duration: number = 1000) => {
     const steps = 8;
@@ -133,12 +144,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
   };
 
   useEffect(() => {
-    if (!startTimeRef.current) {
-      setSessionId(generateRandomHex(8).toUpperCase());
-      startTimeRef.current = Date.now();
-      isLoadingRef.current = true;
-      setTimeout(() => setPanelsVisible(true), 500);
-    }
+    if (!startTimeRef.current) return;
 
     let lastLineIndex = -1;
     const totalDuration = 7000;
@@ -147,7 +153,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
     const animate = async () => {
       if (!isLoadingRef.current) return;
 
-      const elapsed = Date.now() - (startTimeRef.current || Date.now());
+      const elapsed = Date.now() - (startTimeRef.current as number);
       const currentLineIndex = Math.min(Math.floor(elapsed / lineDelay), terminalLines.length);
       const progressPercent = Math.min((elapsed / totalDuration) * 100, 100);
 
@@ -168,7 +174,6 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
         setIsExiting(true);
         setPanelsVisible(false);
         
-        // Clear terminal and show final message with longer delays
         setTimeout(() => {
           setLines([]);
           setShowFinalMessage(true);
@@ -190,7 +195,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
         cancelAnimationFrame(frameRef.current);
       }
     };
-  }, []);
+  }, [onLoadingComplete, terminalLines]);
 
   useEffect(() => {
     if (!isLoadingRef.current) return;

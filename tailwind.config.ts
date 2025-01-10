@@ -88,7 +88,7 @@ const config: Config = {
           '0%': { transform: 'translateY(0)' },
           '100%': { transform: 'translateY(100vh)' },
         },
-        'flicker': {
+        flicker: {
           '0%': { opacity: '0.27861' },
           '5%': { opacity: '0.34769' },
           '10%': { opacity: '0.23604' },
@@ -109,11 +109,11 @@ const config: Config = {
           '85%': { opacity: '0.70419' },
           '90%': { opacity: '0.7003' },
           '95%': { opacity: '0.36108' },
-          '100%': { opacity: '0.24387' },
+          '100%': { opacity: '0.24387' }
         },
-        'blink': {
+        blink: {
           '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0' },
+          '50%': { opacity: '0' }
         },
         'panel-open': {
           '0%': { 
@@ -179,18 +179,6 @@ const config: Config = {
           '33%': { transform: 'translate(-5px, 0)', opacity: '0.5' },
           '66%': { transform: 'translate(5px, 0)', opacity: '0.25' }
         },
-        scanline: {
-          '0%': { transform: 'translateY(0)' },
-          '100%': { transform: 'translateY(100vh)' }
-        },
-        flicker: {
-          '0%, 100%': { opacity: '0.1' },
-          '50%': { opacity: '0' }
-        },
-        blink: {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0' }
-        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
