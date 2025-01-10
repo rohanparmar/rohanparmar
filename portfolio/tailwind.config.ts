@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss"
 
-const config = {
+const config: Config = {
   darkMode: ["class"],
   content: [
     './pages/**/*.{ts,tsx}',
@@ -160,6 +160,36 @@ const config = {
           '100%': { 
             content: 'var(--decrypt-final)'
           }
+        },
+        glitch1: {
+          '0%, 100%': { transform: 'none' },
+          '20%': { transform: 'skew(-3deg)' },
+          '40%': { transform: 'translate(-2px, 2px) skew(2deg)' },
+          '60%': { transform: 'translate(1px, -1px) skew(-1deg)' },
+          '80%': { transform: 'skew(1deg)' }
+        },
+        glitch2: {
+          '0%, 100%': { transform: 'none' },
+          '25%': { transform: 'translate(2px, -2px)' },
+          '50%': { transform: 'translate(-2px, 2px)' },
+          '75%': { transform: 'translate(2px, -2px)' }
+        },
+        glitch3: {
+          '0%, 100%': { transform: 'none', opacity: '0.75' },
+          '33%': { transform: 'translate(-5px, 0)', opacity: '0.5' },
+          '66%': { transform: 'translate(5px, 0)', opacity: '0.25' }
+        },
+        scanline: {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(100vh)' }
+        },
+        flicker: {
+          '0%, 100%': { opacity: '0.1' },
+          '50%': { opacity: '0' }
+        },
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' }
         }
       },
       animation: {
@@ -168,7 +198,16 @@ const config = {
         'glow': 'glow 3s ease-in-out infinite',
         'panel-open': 'panel-open 0.5s ease-out forwards',
         'panel-close': 'panel-close 0.5s ease-out forwards',
-        'decrypt': 'decrypt 1s steps(5) forwards'
+        'decrypt': 'decrypt 1s steps(5) forwards',
+        'glitch-1': 'glitch-1 4s infinite linear alternate-reverse',
+        'glitch-2': 'glitch-2 3s infinite linear alternate-reverse',
+        'glitch-3': 'glitch-3 2s infinite linear alternate-reverse',
+        'scanline': 'scanline 3s linear infinite',
+        'flicker': 'flicker 0.15s infinite',
+        'blink': 'blink 0.7s infinite'
+      },
+      fontFamily: {
+        'cyber': ['Orbitron', 'sans-serif'],
       },
     },
   },

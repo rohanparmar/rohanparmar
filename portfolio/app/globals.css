@@ -71,4 +71,38 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Cyberpunk Scrollbar */
+.cyber-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.cyber-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.cyber-scrollbar::-webkit-scrollbar-thumb {
+  background: theme('colors.cyber.neon');
+  border-radius: 4px;
+  opacity: 0.5;
+  box-shadow: 0 0 5px theme('colors.cyber.neon');
+}
+
+.cyber-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: theme('colors.cyber.accent');
+  box-shadow: 0 0 8px theme('colors.cyber.accent');
+}
+
+/* Hide scrollbar when not hovering */
+.cyber-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: theme('colors.cyber.neon') transparent;
+  transition: scrollbar-color 0.3s ease;
+}
+
+.cyber-scrollbar:hover {
+  scrollbar-color: theme('colors.cyber.accent') rgba(0, 0, 0, 0.2);
+}
+
 
