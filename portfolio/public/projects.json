@@ -1,35 +1,35 @@
 [
     {
+      "src": "/img/tsdb.jpg",
+      "title": "In-Memory Time-Series Database",
+      "shortDescription": "High-performance TSDB in modern C++ with columnar storage and lock-free data structures.",
+      "description": "Implemented a concurrency-focused TSDB in modern C++ using columnar storage, parallel compression, and lock-free data structures to handle real-time ingestion and queries.",
+      "link": "https://github.com/rohanparmar/tsdb",
+      "skills": ["C++", "Concurrency", "Data Structures"]
+    },
+    {
       "src": "/img/gem-in-i.jpg",
       "title": "The Gem in I",
-      "shortDescription": "AI-powered personal development companion using Google's Gemini API and ElevenLabs for intelligent conversations and voice interactions.",
-      "description": "An AI companion that uses Google's Gemini API for meaningful conversations and ElevenLabs for natural voice interactions. Features include personalized goal tracking, emotional support, and adaptive learning. Built with Angular frontend and Firebase backend for real-time data synchronization and user authentication.",
+      "shortDescription": "Interactive language learning web app with Gemini and advanced TTS/STT capabilities.",
+      "description": "Developed an interactive language learning web app leveraging Gemini, Angular, Firebase, and advanced TTS/STT (Google Cloud, ElevenLabs) to facilitate real-time conversational practice.",
       "link": "https://github.com/rohanparmar/gem-in-i",
-      "skills": ["Python", "Angular", "Firebase", "Gemini", "ElevenLabs"]
+      "skills": ["Angular", "Firebase", "Google Cloud", "ElevenLabs"]
     },
     {
       "src": "/img/github-duplicate-issues.jpg",
       "title": "Document Level Embeddings for Github",
-      "shortDescription": "ML system using document-level embeddings to detect duplicate issues in GitHub repositories with high accuracy.",
-      "description": "A machine learning system that uses document-level embeddings to identify duplicate issues in GitHub repositories. Built with PyTorch, it processes issue text and metadata to create semantic embeddings. Features include custom loss functions for accuracy and visualization tools for embedding analysis.",
+      "shortDescription": "ML pipeline for duplicate GitHub issue detection using SBERT embeddings.",
+      "description": "Developed a pipeline for duplicate GitHub issue detection using SBERT embeddings and multi-metric evaluation (F1, cross-entropy, ROC-AUC) in PyTorch.",
       "link": "https://github.com/rohanparmar/Document-Level-Embeddings-for-Github-Duplicate-Issues-Detection",
-      "skills": ["Python", "PyTorch", "Pandas", "Numpy"]
+      "skills": ["Python", "PyTorch", "SBERT", "NLP"]
     },
     {
       "src": "/img/enounceai.jpg",
       "title": "EnounceAI",
-      "shortDescription": "Web app providing real-time pronunciation feedback and personalized exercises to improve speaking skills.",
-      "description": "A web application that helps users improve pronunciation through AI-powered feedback. Built with Express and Node.js, it analyzes speech in real-time and provides detailed feedback on pronunciation, intonation, and rhythm. Includes progress tracking and a library of pronunciation guides.",
+      "shortDescription": "Web app for English learning with GPT-3 and BERT-based NLP.",
+      "description": "Built a web app (Express, Heroku) integrating GPT-3 for generating learning material and BERT-based NLP for precise correctness scoring, aiding immigrants in improving English semantics.",
       "link": "https://github.com/rohanparmar/enounceai",
-      "skills": ["Express", "NodeJS", "Heroku"]
-    },
-    {
-      "src": "/img/discrete-math-symbol.jpg",
-      "title": "Discrete Math Symbol Paster",
-      "shortDescription": "C# utility tool that streamlines the input of mathematical symbols for discrete mathematics work.",
-      "description": "A utility tool that simplifies working with mathematical notation in discrete mathematics. Features include a comprehensive symbol library, keyboard shortcuts, and LaTeX export. Integrates with common text editors to improve workflow efficiency in mathematical documentation.",
-      "link": "https://github.com/rohanparmar/Discrete-Math-Symbol-Paster",
-      "skills": ["C#"]
+      "skills": ["Express", "Heroku", "GPT-3", "BERT"]
     }
 ]
   
