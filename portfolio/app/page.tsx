@@ -6,6 +6,7 @@ import Experience from "@/components/main/Experience";
 import Hero from "@/components/main/Hero";
 import Projects from "@/components/main/Projects";
 import LoadingScreen from "@/components/main/LoadingScreen";
+import Background from "@/components/main/Background";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,7 +20,8 @@ export default function Home() {
       </AnimatePresence>
 
       <main className={`h-full w-full transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
-        <div className="flex flex-col gap-20 relative">
+        <Background />
+        <div className="flex flex-col gap-20">
           <div id="about-me" className="relative">
             <Hero />
           </div>

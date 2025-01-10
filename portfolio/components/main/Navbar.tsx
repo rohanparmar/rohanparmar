@@ -55,7 +55,7 @@ const Navbar = () => {
         </a>
 
         {/* Center Navigation - Angled Design */}
-        <div className='absolute left-1/2 transform -translate-x-1/2 w-[600px] h-[45px]'>
+        <div className='absolute left-1/2 transform -translate-x-1/2 w-[600px] max-w-[90vw] h-[45px] md:w-[600px]'>
           {/* Background shape with angles and curves */}
           <div className='absolute inset-0 bg-[#C6FE01]'
                style={{
@@ -65,7 +65,7 @@ const Navbar = () => {
           </div>
           
           {/* Navigation content */}
-          <nav className='relative h-full flex items-center justify-center gap-12'>
+          <nav className='relative h-full flex items-center justify-center gap-4 md:gap-12'>
             {['about-me', 'work-experience', 'projects'].map((section) => (
               <a
                 key={section}
@@ -74,7 +74,7 @@ const Navbar = () => {
                   e.preventDefault();
                   handleLinkClick(section);
                 }}
-                className={`cursor-pointer relative px-4 py-1 transition-all duration-300 font-semibold ${
+                className={`cursor-pointer relative px-2 md:px-4 py-1 transition-all duration-300 font-semibold text-sm md:text-base ${
                   activeSection === section 
                     ? 'text-black' 
                     : 'text-black/70 hover:text-black'
@@ -90,7 +90,7 @@ const Navbar = () => {
         </div>
 
         {/* Right side - Social Links */}
-        <div className='flex flex-row gap-6'>
+        <div className='hidden md:flex flex-row gap-6'>
           <a 
             href='https://github.com' 
             className='flex items-center gap-2 text-[#C6FE01] hover:brightness-110 transition-all duration-300'

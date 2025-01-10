@@ -141,4 +141,22 @@ html {
   animation: glitch-opacity 2.5s infinite;
 }
 
+/* Custom scrollbar for tech stack */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1a1f2e;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #00E6E6;
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #C6FE01;
+}
+
 

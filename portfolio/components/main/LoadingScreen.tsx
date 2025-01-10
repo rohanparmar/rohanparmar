@@ -267,7 +267,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
         <div className="absolute inset-0 bg-[url('/circuit-pattern.svg')] opacity-5 bg-repeat" />
       </div>
 
-      <div className="w-full max-w-4xl relative">
+      <div className="w-full max-w-4xl relative px-4 md:px-0">
         {/* Top HUD bar */}
         <AnimatePresence>
           {!isExiting && (
@@ -276,10 +276,10 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="mb-4 flex justify-between items-center text-cyber-neon text-sm"
+              className="mb-4 flex flex-col md:flex-row justify-between items-center text-cyber-neon text-xs md:text-sm gap-2 md:gap-0"
             >
               <div>SYSTEM STATUS: ACTIVE</div>
-              <div className="flex gap-4">
+              <div className="flex gap-2 md:gap-4 flex-wrap justify-center">
                 <div>CPU: {systemStats.neuralSync}%</div>
                 <div>MEM: {systemStats.biolink}%</div>
                 <div>NET: {systemStats.quantum}%</div>
@@ -292,7 +292,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
           showFinalMessage ? 'hidden' : ''
         }`}>
           {/* Left side panels */}
-          <div className="space-y-4">
+          <div className="space-y-4 order-2 md:order-1">
             <AnimatePresence>
               {panelsVisible && (
                 <>
@@ -302,28 +302,28 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.95, opacity: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="cyber-panel p-4"
+                    className="cyber-panel p-3 md:p-4"
                   >
-                    <div className="text-cyber-neon text-sm mb-4">NEURAL METRICS</div>
-                    <div className="flex justify-between items-center gap-2">
-                      <CircularProgress value={systemStats.neuralSync} max={100} radius={24} color="text-cyber-neon" />
-                      <CircularProgress value={systemStats.biolink} max={100} radius={24} color="text-cyber-accent" />
-                      <CircularProgress value={systemStats.quantum} max={100} radius={24} color="text-cyber-neon" />
+                    <div className="text-cyber-neon text-xs md:text-sm mb-3 md:mb-4">NEURAL METRICS</div>
+                    <div className="flex justify-between items-center gap-1 md:gap-2">
+                      <CircularProgress value={systemStats.neuralSync} max={100} radius={20} color="text-cyber-neon" />
+                      <CircularProgress value={systemStats.biolink} max={100} radius={20} color="text-cyber-accent" />
+                      <CircularProgress value={systemStats.quantum} max={100} radius={20} color="text-cyber-neon" />
                     </div>
-                    <div className="flex justify-between text-xs mt-2 text-cyber-neon/70">
+                    <div className="flex justify-between text-[10px] md:text-xs mt-2 text-cyber-neon/70">
                       <span>SYNC</span>
                       <span>BIO</span>
                       <span>QTM</span>
                     </div>
                   </motion.div>
 
-                  {/* Neural Activity Waveform */}
+                  {/* Neural Activity Waveform - Hidden on mobile */}
                   <motion.div
                     initial={{ scale: 0.95, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.95, opacity: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="cyber-panel p-4"
+                    className="hidden md:block cyber-panel p-4"
                   >
                     <div className="text-cyber-neon text-sm mb-2">NEURAL ACTIVITY</div>
                     <div className="h-12 flex items-center gap-0.5">
@@ -337,13 +337,13 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
                     </div>
                   </motion.div>
 
-                  {/* Security Matrix */}
+                  {/* Security Matrix - Hidden on mobile */}
                   <motion.div
                     initial={{ scale: 0.95, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.95, opacity: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="cyber-panel p-4"
+                    className="hidden md:block cyber-panel p-4"
                   >
                     <div className="text-cyber-neon text-sm mb-2">SECURITY MATRIX</div>
                     <div className="font-mono text-[8px] leading-[8px] text-cyber-neon/70">
@@ -368,7 +368,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
 
           {/* Main terminal */}
           <motion.div 
-            className="col-span-3"
+            className="col-span-1 md:col-span-3 order-1 md:order-2"
             layout="position"
             layoutId="terminal"
             transition={{ 
@@ -381,20 +381,12 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
             <motion.div 
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="cyber-panel h-[60vh] relative overflow-hidden"
+              className="cyber-panel h-[40vh] md:h-[60vh] relative overflow-hidden"
               layout="preserve-aspect"
               transition={{ duration: 0.8, ease: "easeInOut" }}
             >
-              {/* Enhanced CRT and scanline effects */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cyber-neon/5" />
-                <div className="absolute inset-0 animate-[flicker_0.15s_infinite]" />
-                <div className="absolute top-0 left-0 right-0 h-[2px] bg-cyber-neon/20 animate-[scanline_3s_linear_infinite]" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-cyber-neon/5 to-transparent opacity-50" />
-              </div>
-
               {/* Terminal content */}
-              <div className="relative z-10 p-6 font-mono text-cyber-neon h-full overflow-y-auto">
+              <div className="relative z-10 p-4 md:p-6 font-mono text-cyber-neon h-full overflow-y-auto">
                 {showFinalMessage ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -415,7 +407,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
                         }}
                         className="relative"
                       >
-                        <div className="text-7xl font-cyber tracking-wider text-cyber-neon mb-8 relative cyberpunk-text">
+                        <div className="text-4xl md:text-7xl font-cyber tracking-wider text-cyber-neon mb-4 md:mb-8 relative cyberpunk-text">
                           <span className="relative inline-block">
                             <span className="relative z-10 drop-shadow-[0_0_10px_rgba(204,255,0,0.5)]">WELCOME</span>
                             <span className="absolute inset-0 text-cyber-accent/80 blur-[2px] mix-blend-screen animate-glitch-1 z-20 translate-x-[2px] translate-y-[-2px]">WELCOME</span>
@@ -438,7 +430,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
                         }}
                         className="relative"
                       >
-                        <div className="text-2xl font-cyber tracking-[0.2em] text-cyber-accent relative cyberpunk-text">
+                        <div className="text-lg md:text-2xl font-cyber tracking-[0.2em] text-cyber-accent relative cyberpunk-text">
                           <span className="relative inline-block">
                             <span className="relative z-10 drop-shadow-[0_0_8px_rgba(0,255,159,0.5)]">NEURAL LINK ESTABLISHED</span>
                             <span className="absolute inset-0 text-cyber-neon/60 blur-[1px] mix-blend-screen animate-glitch-3 z-20">NEURAL LINK ESTABLISHED</span>
@@ -453,7 +445,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
                     {lines.map((line, index) => (
                       <div 
                         key={index} 
-                        className={`mb-1 transition-colors duration-500 ${
+                        className={`mb-1 transition-colors duration-500 text-xs md:text-base ${
                           line.decrypted ? 'text-cyber-neon' : 'text-cyber-neon/50'
                         }`}
                       >
@@ -471,7 +463,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
           </motion.div>
 
           {/* Right side panels */}
-          <div className="space-y-4">
+          <div className="space-y-4 order-3">
             <AnimatePresence>
               {panelsVisible && (
                 <>
@@ -481,27 +473,27 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.95, opacity: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="cyber-panel p-4"
+                    className="cyber-panel p-3 md:p-4"
                   >
-                    <div className="text-cyber-neon text-sm mb-2">SYSTEM LOAD</div>
-                    <div className="w-full bg-cyber-dark/50 h-2 rounded-sm overflow-hidden">
+                    <div className="text-cyber-neon text-xs md:text-sm mb-2">SYSTEM LOAD</div>
+                    <div className="w-full bg-cyber-dark/50 h-1.5 md:h-2 rounded-sm overflow-hidden">
                       <div 
                         className="h-full bg-cyber-neon transition-all duration-150 shadow-neon"
                         style={{ width: `${progress}%` }}
                       />
                     </div>
-                    <div className="text-right text-cyber-neon text-sm mt-1">
+                    <div className="text-right text-cyber-neon text-xs md:text-sm mt-1">
                       {Math.round(progress)}%
                     </div>
                   </motion.div>
 
-                  {/* Sector Status */}
+                  {/* Sector Status - Hidden on mobile */}
                   <motion.div
                     initial={{ scale: 0.95, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.95, opacity: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
-                    className="cyber-panel p-4"
+                    className="hidden md:block cyber-panel p-4"
                   >
                     <div className="text-cyber-neon text-sm mb-2">SECTOR STATUS</div>
                     <div className="grid grid-cols-1 gap-2 text-xs">
@@ -521,13 +513,13 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
                     </div>
                   </motion.div>
 
-                  {/* Data stream visualization */}
+                  {/* Data stream visualization - Hidden on mobile */}
                   <motion.div
                     initial={{ scale: 0.95, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.95, opacity: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="cyber-panel p-4"
+                    className="hidden md:block cyber-panel p-4"
                   >
                     <div className="text-cyber-neon text-sm mb-2">DATA STREAM</div>
                     <div className="font-mono text-[10px] leading-tight text-cyber-neon/70 break-all">
@@ -572,7 +564,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
                     ease: "easeInOut"
                   }}
                 >
-                  {/* Keep CRT effects and welcome content ... */}
+                  {/* CRT effects */}
                   <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cyber-neon/5" />
                     <div className="absolute inset-0 animate-[flicker_0.15s_infinite]" />
@@ -593,7 +585,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
                         }}
                         className="relative"
                       >
-                        <div className="text-7xl font-cyber tracking-wider text-cyber-neon mb-8 relative cyberpunk-text">
+                        <div className="text-4xl md:text-7xl font-cyber tracking-wider text-cyber-neon mb-4 md:mb-8 relative cyberpunk-text">
                           <span className="relative inline-block">
                             <span className="relative z-10 drop-shadow-[0_0_10px_rgba(204,255,0,0.5)]">WELCOME</span>
                             <span className="absolute inset-0 text-cyber-accent/80 blur-[2px] mix-blend-screen animate-glitch-1 z-20 translate-x-[2px] translate-y-[-2px]">WELCOME</span>
@@ -616,7 +608,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
                         }}
                         className="relative"
                       >
-                        <div className="text-2xl font-cyber tracking-[0.2em] text-cyber-accent relative cyberpunk-text">
+                        <div className="text-lg md:text-2xl font-cyber tracking-[0.2em] text-cyber-accent relative cyberpunk-text">
                           <span className="relative inline-block">
                             <span className="relative z-10 drop-shadow-[0_0_8px_rgba(0,255,159,0.5)]">NEURAL LINK ESTABLISHED</span>
                             <span className="absolute inset-0 text-cyber-neon/60 blur-[1px] mix-blend-screen animate-glitch-3 z-20">NEURAL LINK ESTABLISHED</span>
@@ -640,7 +632,7 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.5 }}
-              className="mt-4 flex justify-between items-center text-cyber-neon text-sm"
+              className="mt-4 flex flex-col md:flex-row justify-between items-center text-cyber-neon text-xs md:text-sm gap-2 md:gap-0"
             >
               <div>SESSION ID: {sessionId}</div>
               <div>ENCRYPTION: ACTIVE</div>
