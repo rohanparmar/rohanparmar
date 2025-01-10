@@ -85,9 +85,9 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
   const [isExiting, setIsExiting] = useState(false);
   const [showFinalMessage, setShowFinalMessage] = useState(false);
   const [systemStats, setSystemStats] = useState({
-    cpu: 60,
-    memory: 40,
-    network: 70
+    neuralSync: 60,
+    biolink: 40,
+    quantum: 70
   });
   const [waveform, setWaveform] = useState<number[]>(generateWaveform(20));
   const [matrix, setMatrix] = useState<string[]>(generateMatrix());
@@ -197,9 +197,9 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
 
     const updateStats = () => {
       setSystemStats({
-        cpu: generateRandomNumber(60, 98),
-        memory: generateRandomNumber(40, 85),
-        network: generateRandomNumber(70, 99)
+        neuralSync: generateRandomNumber(60, 98),
+        biolink: generateRandomNumber(40, 85),
+        quantum: generateRandomNumber(70, 99)
       });
     };
 
@@ -280,9 +280,9 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
             >
               <div>SYSTEM STATUS: ACTIVE</div>
               <div className="flex gap-4">
-                <div>CPU: {systemStats.cpu}%</div>
-                <div>MEM: {systemStats.memory}%</div>
-                <div>NET: {systemStats.network}%</div>
+                <div>CPU: {systemStats.neuralSync}%</div>
+                <div>MEM: {systemStats.biolink}%</div>
+                <div>NET: {systemStats.quantum}%</div>
               </div>
             </motion.div>
           )}
@@ -304,16 +304,16 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
                     transition={{ duration: 0.5 }}
                     className="cyber-panel p-4"
                   >
-                    <div className="text-cyber-neon text-sm mb-4">SYSTEM METRICS</div>
+                    <div className="text-cyber-neon text-sm mb-4">NEURAL METRICS</div>
                     <div className="flex justify-between items-center gap-2">
-                      <CircularProgress value={systemStats.cpu} max={100} radius={24} color="text-cyber-neon" />
-                      <CircularProgress value={systemStats.memory} max={100} radius={24} color="text-cyber-accent" />
-                      <CircularProgress value={systemStats.network} max={100} radius={24} color="text-cyber-neon" />
+                      <CircularProgress value={systemStats.neuralSync} max={100} radius={24} color="text-cyber-neon" />
+                      <CircularProgress value={systemStats.biolink} max={100} radius={24} color="text-cyber-accent" />
+                      <CircularProgress value={systemStats.quantum} max={100} radius={24} color="text-cyber-neon" />
                     </div>
                     <div className="flex justify-between text-xs mt-2 text-cyber-neon/70">
-                      <span>CPU</span>
-                      <span>MEM</span>
-                      <span>NET</span>
+                      <span>SYNC</span>
+                      <span>BIO</span>
+                      <span>QTM</span>
                     </div>
                   </motion.div>
 
@@ -418,9 +418,11 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
                         <div className="text-7xl font-cyber tracking-wider text-cyber-neon mb-8 relative cyberpunk-text">
                           <span className="relative inline-block">
                             <span className="relative z-10 drop-shadow-[0_0_10px_rgba(204,255,0,0.5)]">WELCOME</span>
-                            <span className="absolute inset-0 text-cyber-accent/80 blur-[2px] mix-blend-screen animate-glitch-1 z-20">WELCOME</span>
-                            <span className="absolute inset-0 text-cyber-neon/80 blur-[1px] mix-blend-multiply animate-glitch-2 z-30">WELCOME</span>
+                            <span className="absolute inset-0 text-cyber-accent/80 blur-[2px] mix-blend-screen animate-glitch-1 z-20 translate-x-[2px] translate-y-[-2px]">WELCOME</span>
+                            <span className="absolute inset-0 text-cyber-neon/80 blur-[1px] mix-blend-multiply animate-glitch-2 z-30 translate-x-[-2px] translate-y-[2px]">WELCOME</span>
                             <span className="absolute inset-0 bg-gradient-to-r from-cyber-neon/0 via-cyber-neon/30 to-cyber-neon/0 blur-xl animate-glitch-3 z-0"></span>
+                            <span className="absolute inset-0 bg-gradient-to-r from-cyber-accent/0 via-cyber-accent/20 to-cyber-accent/0 blur-lg animate-pulse mix-blend-overlay"></span>
+                            <span className="absolute inset-0 bg-cyber-neon/10 mix-blend-overlay filter contrast-150 animate-glitch-opacity"></span>
                           </span>
                           <span className="absolute -inset-1 bg-gradient-to-r from-cyber-neon/0 via-cyber-neon/20 to-cyber-neon/0 blur-xl animate-pulse"></span>
                         </div>
@@ -594,9 +596,11 @@ const LoadingScreen = ({ onLoadingComplete }: { onLoadingComplete: () => void })
                         <div className="text-7xl font-cyber tracking-wider text-cyber-neon mb-8 relative cyberpunk-text">
                           <span className="relative inline-block">
                             <span className="relative z-10 drop-shadow-[0_0_10px_rgba(204,255,0,0.5)]">WELCOME</span>
-                            <span className="absolute inset-0 text-cyber-accent/80 blur-[2px] mix-blend-screen animate-glitch-1 z-20">WELCOME</span>
-                            <span className="absolute inset-0 text-cyber-neon/80 blur-[1px] mix-blend-multiply animate-glitch-2 z-30">WELCOME</span>
+                            <span className="absolute inset-0 text-cyber-accent/80 blur-[2px] mix-blend-screen animate-glitch-1 z-20 translate-x-[2px] translate-y-[-2px]">WELCOME</span>
+                            <span className="absolute inset-0 text-cyber-neon/80 blur-[1px] mix-blend-multiply animate-glitch-2 z-30 translate-x-[-2px] translate-y-[2px]">WELCOME</span>
                             <span className="absolute inset-0 bg-gradient-to-r from-cyber-neon/0 via-cyber-neon/30 to-cyber-neon/0 blur-xl animate-glitch-3 z-0"></span>
+                            <span className="absolute inset-0 bg-gradient-to-r from-cyber-accent/0 via-cyber-accent/20 to-cyber-accent/0 blur-lg animate-pulse mix-blend-overlay"></span>
+                            <span className="absolute inset-0 bg-cyber-neon/10 mix-blend-overlay filter contrast-150 animate-glitch-opacity"></span>
                           </span>
                           <span className="absolute -inset-1 bg-gradient-to-r from-cyber-neon/0 via-cyber-neon/20 to-cyber-neon/0 blur-xl animate-pulse"></span>
                         </div>

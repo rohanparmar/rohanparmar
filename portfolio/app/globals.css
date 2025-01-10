@@ -4,19 +4,19 @@
 
 @layer base {
   :root {
-    --background: 200 28% 15%;  /* #1A2B32 */
-    --foreground: 0 0% 96%;     /* #F5F5F5 */
-    --card: 200 28% 15%;
+    --background: 0 0% 0%;     /* #000000 */
+    --foreground: 0 0% 96%;    /* #F5F5F5 */
+    --card: 0 0% 0%;
     --card-foreground: 0 0% 96%;
-    --popover: 200 28% 15%;
+    --popover: 0 0% 0%;
     --popover-foreground: 0 0% 96%;
-    --primary: 72 100% 50%;     /* #CCFF00 */
+    --primary: 72 100% 50%;    /* #CCFF00 */
     --primary-foreground: 0 0% 0%;
-    --secondary: 196 18% 36%;   /* #4A6670 */
+    --secondary: 196 18% 36%;  /* #4A6670 */
     --secondary-foreground: 0 0% 96%;
     --muted: 196 18% 36%;
     --muted-foreground: 0 0% 96%;
-    --accent: 156 100% 50%;     /* #00FF9F */
+    --accent: 156 100% 50%;    /* #00FF9F */
     --accent-foreground: 0 0% 0%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 96%;
@@ -32,10 +32,9 @@
     @apply border-border;
   }
   body {
-    @apply bg-cyber-dark text-cyber-white;
+    @apply bg-black text-cyber-white;
     background-image: 
-      linear-gradient(to bottom, rgba(26, 43, 50, 0.9), rgba(26, 43, 50, 0.95)),
-      repeating-linear-gradient(45deg, rgba(204, 255, 0, 0.1) 0px, rgba(204, 255, 0, 0.1) 1px, transparent 1px, transparent 10px);
+      repeating-linear-gradient(45deg, rgba(198, 254, 1, 0.02) 0px, rgba(198, 254, 1, 0.02) 1px, transparent 1px, transparent 10px);
   }
 }
 
@@ -51,7 +50,7 @@
   }
 
   .cyber-panel {
-    @apply bg-cyber-dark/80 border-2 border-cyber-neon p-6 
+    @apply bg-black/80 border-2 border-cyber-neon p-6 
            backdrop-blur-sm shadow-neon;
   }
 
@@ -62,8 +61,8 @@
   .cyber-grid {
     background-size: 50px 50px;
     background-image: 
-      linear-gradient(to right, rgba(204, 255, 0, 0.1) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(204, 255, 0, 0.1) 1px, transparent 1px);
+      linear-gradient(to right, rgba(198, 254, 1, 0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(198, 254, 1, 0.02) 1px, transparent 1px);
   }
 }
 
@@ -103,6 +102,43 @@ html {
 
 .cyber-scrollbar:hover {
   scrollbar-color: theme('colors.cyber.accent') rgba(0, 0, 0, 0.2);
+}
+
+@keyframes glitch-opacity {
+  0% {
+    opacity: 0.3;
+  }
+  27% {
+    opacity: 0.1;
+  }
+  31% {
+    opacity: 0.4;
+  }
+  35% {
+    opacity: 0.2;
+  }
+  39% {
+    opacity: 0.3;
+  }
+  45% {
+    opacity: 0.2;
+  }
+  60% {
+    opacity: 0.4;
+  }
+  75% {
+    opacity: 0.1;
+  }
+  80% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.animate-glitch-opacity {
+  animation: glitch-opacity 2.5s infinite;
 }
 
 

@@ -18,10 +18,8 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      <main className={`h-full w-full cyber-grid transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+      <main className={`h-full w-full transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <div className="flex flex-col gap-20 relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-cyber-dark/50 to-cyber-dark pointer-events-none" />
-          
           <div id="about-me" className="relative">
             <Hero />
           </div>

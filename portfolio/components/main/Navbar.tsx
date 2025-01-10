@@ -39,21 +39,33 @@ const Navbar = () => {
       variants={fadeIn(0.2)}
       initial="hidden"
       animate="visible"
-      className='w-full h-[65px] fixed top-0 z-50 bg-cyber-dark/80 backdrop-blur-md border-b border-cyber-neon/20'
+      className='w-full h-[65px] fixed top-0 z-50'
     >
-      <div className='w-full h-full flex flex-row items-center justify-between m-auto px-10'>
+      {/* Main content */}
+      <div className='relative w-full h-full flex flex-row items-center justify-between m-auto px-10'>
+        {/* Left side - Name */}
         <a 
           href='#about-me' 
           className='h-auto w-auto flex flex-row items-center' 
           onClick={() => handleLinkClick('about-me')}
         >
-          <span className="font-bold text-xl text-cyber-neon hover:shadow-neon transition-all duration-300">
+          <span className="font-bold text-xl text-[#C6FE01] hover:brightness-110 transition-all duration-300">
             Rohan Parmar
           </span>
         </a>
 
-        <div className='absolute left-1/2 transform -translate-x-1/2'>
-          <nav className='flex items-center justify-between w-[500px] h-auto px-6 py-2 rounded-full bg-cyber-dark/50 border border-cyber-neon/30'>
+        {/* Center Navigation - Angled Design */}
+        <div className='absolute left-1/2 transform -translate-x-1/2 w-[600px] h-[45px]'>
+          {/* Background shape with angles and curves */}
+          <div className='absolute inset-0 bg-[#C6FE01]'
+               style={{
+                 clipPath: 'polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%)',
+                 borderRadius: '0 0 10px 10px'
+               }}>
+          </div>
+          
+          {/* Navigation content */}
+          <nav className='relative h-full flex items-center justify-center gap-12'>
             {['about-me', 'work-experience', 'projects'].map((section) => (
               <a
                 key={section}
@@ -62,25 +74,26 @@ const Navbar = () => {
                   e.preventDefault();
                   handleLinkClick(section);
                 }}
-                className={`cursor-pointer relative px-4 py-1 transition-all duration-300 ${
+                className={`cursor-pointer relative px-4 py-1 transition-all duration-300 font-semibold ${
                   activeSection === section 
-                    ? 'text-cyber-neon shadow-neon' 
-                    : 'text-cyber-white hover:text-cyber-neon'
+                    ? 'text-black' 
+                    : 'text-black/70 hover:text-black'
                 }`}
               >
                 {section.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
                 {activeSection === section && (
-                  <span className="absolute bottom-0 left-0 w-full h-[1px] bg-cyber-neon shadow-neon"></span>
+                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-black/50"></span>
                 )}
               </a>
             ))}
           </nav>
         </div>
 
+        {/* Right side - Social Links */}
         <div className='flex flex-row gap-6'>
           <a 
             href='https://github.com' 
-            className='flex items-center gap-2 text-cyber-white hover:text-cyber-neon transition-colors duration-300'
+            className='flex items-center gap-2 text-[#C6FE01] hover:brightness-110 transition-all duration-300'
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -89,7 +102,7 @@ const Navbar = () => {
           </a>
           <a 
             href='https://linkedin.com' 
-            className='flex items-center gap-2 text-cyber-white hover:text-cyber-neon transition-colors duration-300'
+            className='flex items-center gap-2 text-[#C6FE01] hover:brightness-110 transition-all duration-300'
             target="_blank"
             rel="noopener noreferrer"
           >

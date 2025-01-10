@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Orbitron } from "next/font/google";
 import "./globals.css";
-import StarsCanvas from "@/components/main/StarBackground";
+import CyberspaceCanvas from "@/components/main/StarBackground";
 import Navbar from "@/components/main/Navbar";
 import Footer from "@/components/main/Footer";
 
@@ -20,8 +20,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${orbitron.variable} bg-[#030014] overflow-y-scroll overflow-x-hidden`}>
-        <StarsCanvas />
+      <body className={`${inter.className} ${orbitron.variable} bg-black overflow-y-scroll overflow-x-hidden`}>
+        <CyberspaceCanvas />
         <Navbar />
         {children}
         <Footer />
