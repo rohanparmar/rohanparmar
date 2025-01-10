@@ -12,18 +12,31 @@ interface Props {
 
 const ProjectCard = ({ src, title, description, link, skills, onClick }: Props) => {
   return (
-    <div onClick={onClick} className='relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] cursor-pointer'>
-      <div className='relative p-4'>
-        <h1 className='text-2xl font font-semibold text-white'>{title}</h1>
-        <div className='flex flex-wrap mt-2'>
+    <div 
+      onClick={onClick} 
+      className='cyber-panel relative overflow-hidden w-72 h-96 group hover:shadow-neon-strong transition-all duration-300 cursor-pointer'
+    >
+      <div className='absolute -inset-1 bg-cyber-neon opacity-10 blur group-hover:opacity-20 transition-opacity duration-300' />
+      
+      <div className='relative p-6 h-full flex flex-col z-10'>
+        <h1 className='text-2xl font-bold text-cyber-neon mb-4'>{title}</h1>
+        
+        <div className='flex flex-wrap gap-2 mb-4'>
           {skills.map((skill, index) => (
-            <span key={index} className='bg-purple-600 text-white text-xs font-semibold mr-2 px-2.5 py-0.5 rounded'>
+            <span 
+              key={index} 
+              className='bg-cyber-dark border border-cyber-neon text-cyber-neon text-xs font-bold px-2 py-1 rounded-sm'
+            >
               {skill}
             </span>
           ))}
         </div>
-        <p className='mt-2 text-gray-300'>{description}</p>
+        
+        <p className='text-cyber-white/80 flex-grow'>{description}</p>
       </div>
+
+      <div className='absolute top-0 left-0 w-full h-1 bg-cyber-neon shadow-neon opacity-50 group-hover:opacity-100 transition-opacity duration-300' />
+      <div className='absolute bottom-0 left-0 w-full h-1 bg-cyber-neon shadow-neon opacity-50 group-hover:opacity-100 transition-opacity duration-300' />
     </div>
   )
 }

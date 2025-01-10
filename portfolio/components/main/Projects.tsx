@@ -3,10 +3,20 @@
 import React, { useState, useEffect } from 'react'
 import ProjectCard from '../sub/ProjectCard'
 import ProjectDetailsModal from '../sub/ProjectDetailsModal'
+import { motion } from 'framer-motion';
+import { fadeIn, fadeInUp } from '@/utils/motion';
+
+interface Project {
+  src: string;
+  title: string;
+  description: string;
+  link: string;
+  skills: string[];
+}
 
 const Projects = () => {
-  const [projectData, setProjectData] = useState([]);
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [projectData, setProjectData] = useState<Project[]>([]);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -17,7 +27,7 @@ const Projects = () => {
     fetchProjects();
   }, []);
 
-  const handleProjectClick = (project) => {
+  const handleProjectClick = (project: Project) => {
     setSelectedProject(project);
   }
 
@@ -26,23 +36,38 @@ const Projects = () => {
   }
 
   return (
-    <div className='flex flex-col items-center justify-center py-20'>
-      <h1 className='text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20'>
+    <div className='relative flex flex-col items-center justify-center py-20 overflow-hidden'>
+      <div className="absolute inset-0 cyber-grid opacity-20" />
+      
+      <motion.h1 
+        variants={fadeInUp(0.3)}
+        initial="hidden"
+        animate="visible"
+        className='text-[40px] font-bold text-cyber-neon cyber-text mb-12'
+      >
         Projects
-      </h1>
+      </motion.h1>
+
       <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 px-10'>
         {projectData.map((project, index) => (
-          <ProjectCard
+          <motion.div
             key={index}
-            src={project.src}
-            title={project.title}
-            description={project.description}
-            link={project.link}
-            skills={project.skills}
-            onClick={() => handleProjectClick(project)}
-          />
+            variants={fadeIn((index + 2) * 0.1)}
+            initial="hidden"
+            animate="visible"
+          >
+            <ProjectCard
+              src={project.src}
+              title={project.title}
+              description={project.description}
+              link={project.link}
+              skills={project.skills}
+              onClick={() => handleProjectClick(project)}
+            />
+          </motion.div>
         ))}
       </div>
+
       {selectedProject && (
         <ProjectDetailsModal
           src={selectedProject.src}

@@ -13,17 +13,34 @@ interface Props {
 
 const ExperienceCard = ({ src, company, role, description, date, location }: Props) => {
   return (
-    <div className='relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] w-80 h-96'> {/* Fixed width and height */}
-      {/* <Image src={src} alt={company} width={600} height={600} className='w-full object-contain' /> */}
-      <div className='relative p-4 h-full flex flex-col justify-between'>
+    <div className='cyber-panel relative overflow-hidden w-80 h-96 group hover:shadow-neon-strong transition-all duration-300'> 
+      <div className='absolute -inset-1 bg-cyber-neon opacity-10 blur group-hover:opacity-20 transition-opacity duration-300' />
+      
+      <div className='relative p-6 h-full flex flex-col justify-between z-10'>
         <div>
-          <h1 className='text-2xl font-semibold text-white'>{company}</h1>
-          {role && <p className='mt-2 text-gray-300'>{role}</p>}
-          {date && <Badge className='mt-2'>{date}</Badge>}
-          <p className='mt-2 text-gray-300'>{description}</p>
+          <h1 className='text-2xl font-bold text-cyber-neon mb-3'>{company}</h1>
+          {role && (
+            <div className='cyber-border px-3 py-1 inline-block mb-3'>
+              <p className='text-cyber-white'>{role}</p>
+            </div>
+          )}
+          {date && (
+            <div className='mb-3'>
+              <Badge className='bg-cyber-dark border border-cyber-neon text-cyber-neon'>{date}</Badge>
+            </div>
+          )}
+          <p className='text-cyber-white/80'>{description}</p>
         </div>
-        {location && <Badge className='mt-4'>{location}</Badge>}
+        
+        {location && (
+          <div className='mt-auto'>
+            <Badge className='bg-cyber-dark border border-cyber-neon text-cyber-neon'>{location}</Badge>
+          </div>
+        )}
       </div>
+
+      <div className='absolute top-0 left-0 w-full h-1 bg-cyber-neon shadow-neon opacity-50 group-hover:opacity-100 transition-opacity duration-300' />
+      <div className='absolute bottom-0 left-0 w-full h-1 bg-cyber-neon shadow-neon opacity-50 group-hover:opacity-100 transition-opacity duration-300' />
     </div>
   );
 }
