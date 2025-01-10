@@ -21,16 +21,18 @@ export default function Home() {
 
       <main className={`h-full w-full transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
         <Background />
-        <div className="flex flex-col gap-20">
+        <div className="flex flex-col">
           <div id="about-me" className="relative">
             <Hero />
           </div>
           
-          <div id="work-experience" className="relative">
+          <div id="work-experience" className="relative min-h-screen">
+            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-1/4 h-[2px] bg-gradient-to-r from-transparent via-[#C6FE01] to-transparent opacity-50" />
             <Experience />
           </div>
           
-          <div id="projects" className="relative">
+          <div id="projects" className="relative min-h-screen">
+            <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-1/4 h-[2px] bg-gradient-to-r from-transparent via-[#C6FE01] to-transparent opacity-50" />
             <Projects />
           </div>
         </div>

@@ -37,16 +37,16 @@ const Projects = () => {
   }
 
   return (
-    <div className='relative flex flex-col items-center justify-center'>
+    <div className='relative flex flex-col items-center justify-center py-32 md:py-40'>
       {/* Background elements */}
       <div className="absolute inset-0 bg-[#17151e]">
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="h-full w-full bg-[linear-gradient(to_right,#00E6E633_1px,transparent_1px),linear-gradient(to_bottom,#00E6E633_1px,transparent_1px)]" style={{ backgroundSize: '24px 24px' }} />
+          <div className="h-full w-full bg-[linear-gradient(to_right,#C6FE0133_1px,transparent_1px),linear-gradient(to_bottom,#C6FE0133_1px,transparent_1px)]" style={{ backgroundSize: '24px 24px' }} />
         </div>
         {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#FF000015] to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#00E6E610] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00E6E615] to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#C6FE0110] to-transparent" />
       </div>
 
       {/* Header */}
